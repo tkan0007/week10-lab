@@ -18,6 +18,7 @@ import { ListMoviesComponent } from './list-movies/list-movies.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
+import { AddActorInMovieComponent } from './add-actor-in-movie/add-actor-in-movie.component';
 
 const appActorRoutes: Routes = [
   { path: "listActors", component: ListActorsComponent },
@@ -31,6 +32,7 @@ const appMovieRouters: Routes = [
   { path: "listMovies", component: ListMoviesComponent },
   { path: "addMovie", component: AddMovieComponent },
   { path: "updateMovie", component: UpdateMovieComponent },
+  { path: "addActorInMovie", component: AddActorInMovieComponent},
   { path: "deleteMovie", component: DeleteMovieComponent },
   { path: "", redirectTo: "/listMovies", pathMatch: "full" },
   { path: "**", component: ViewNotFoundComponent}
@@ -49,7 +51,8 @@ const appMovieRouters: Routes = [
     ListMoviesComponent,
     AddMovieComponent,
     UpdateMovieComponent,
-    DeleteMovieComponent
+    DeleteMovieComponent,
+    AddActorInMovieComponent
   ],
   imports: [
     // RouterModule.forRoot(appActorRoutes,{
