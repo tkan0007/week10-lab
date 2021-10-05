@@ -12,6 +12,15 @@ import { ListActorsComponent } from './list-actors/list-actors.component';
 import { AddActorComponent } from './add-actor/add-actor.component';
 import { UpdateActorComponent } from './update-actor/update-actor.component';
 import { DeleteActorComponent } from './delete-actor/delete-actor.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: "listActors", component: ListActorsComponent },
+  { path: "addActor", component: AddActorComponent },
+  { path: "updateActor", component: UpdateActorComponent },
+  { path: "deleteActor", component: DeleteActorComponent },
+  { path: "", redirectTo: "/listActors", pathMatch: "full" },
+];
 
 @NgModule({
   declarations: [
@@ -24,8 +33,9 @@ import { DeleteActorComponent } from './delete-actor/delete-actor.component';
     DeleteActorComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
+
     BrowserModule,
-    //AppRoutingModule,
     FormsModule,
     HttpClientModule
   ],

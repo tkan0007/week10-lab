@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-list-actors',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListActorsComponent implements OnInit {
 
-  constructor() { }
+  actorDB: any[] = [];
+
+  constructor(private dbService:DatabaseService) { }
 
   ngOnInit(): void {
-  }
+    console.log("Actor list")
 
+    this.dbService.getActors(). subscribe((data:any) =>{
+      this.actorDB = data;
+    });
+  }
 }
