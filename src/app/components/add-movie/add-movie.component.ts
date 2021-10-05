@@ -12,4 +12,6 @@ export class AddMovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title: string = "Week 10 Lab";
+
 }
