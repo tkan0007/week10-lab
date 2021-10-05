@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddMovieComponent } from './components/add-movie/add-movie.component';
-import { DeleteMovieComponent } from './components/delete-movie/delete-movie.component';
-import { ListMoviesComponent } from './components/list-movies/list-movies.component';
-import { AddActorToMovieComponent } from './components/add-actor-to-movie/add-actor-to-movie.component';
+import { ActorComponent } from './actor/actor.component';
+import { DatabaseService } from './database.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddMovieComponent,
-    DeleteMovieComponent,
-    ListMoviesComponent,
-    AddActorToMovieComponent
+    ActorComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    //AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatabaseService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

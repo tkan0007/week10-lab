@@ -1,2 +1,13 @@
-<app-add-actor-to-movie></app-add-actor-to-movie>
-<app-add-movie></app-add-movie>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="changeState()">
+    {{toggleTitle}}
+  </button>
+<div *ngIf="isActor">
+    <app-actor></app-actor>
+</div>
+<div *ngIf="isMovie">
+    <app-movie></app-movie>
+</div>
+
+<!--
+    <router-outlet></router-outlet>
+-->

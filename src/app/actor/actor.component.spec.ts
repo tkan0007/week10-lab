@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteMovieComponent } from './delete-movie.component';
+import { ActorComponent } from './actor.component';
 
-describe('DeleteMovieComponent', () => {
-  let component: DeleteMovieComponent;
-  let fixture: ComponentFixture<DeleteMovieComponent>;
+describe('ActorComponent', () => {
+  let component: ActorComponent;
+  let fixture: ComponentFixture<ActorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteMovieComponent ]
+      declarations: [ ActorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteMovieComponent);
+    fixture = TestBed.createComponent(ActorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
