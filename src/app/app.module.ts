@@ -13,14 +13,28 @@ import { AddActorComponent } from './add-actor/add-actor.component';
 import { UpdateActorComponent } from './update-actor/update-actor.component';
 import { DeleteActorComponent } from './delete-actor/delete-actor.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { ListMoviesComponent } from './list-movies/list-movies.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 
-const appRoutes: Routes = [
+const appActorRoutes: Routes = [
   { path: "listActors", component: ListActorsComponent },
   { path: "addActor", component: AddActorComponent },
   { path: "updateActor", component: UpdateActorComponent },
   { path: "deleteActor", component: DeleteActorComponent },
   { path: "", redirectTo: "/listActors", pathMatch: "full" },
+  { path: "**", component: ViewNotFoundComponent}
 ];
+const appMovieRouters: Routes = [
+  { path: "listMovies", component: ListMoviesComponent },
+  { path: "addMovie", component: AddMovieComponent },
+  { path: "updateMovie", component: UpdateMovieComponent },
+  { path: "deleteMovie", component: DeleteMovieComponent },
+  { path: "", redirectTo: "/listMovies", pathMatch: "full" },
+  { path: "**", component: ViewNotFoundComponent}
+]
 
 @NgModule({
   declarations: [
@@ -30,11 +44,21 @@ const appRoutes: Routes = [
     ListActorsComponent,
     AddActorComponent,
     UpdateActorComponent,
-    DeleteActorComponent
+    DeleteActorComponent,
+    ViewNotFoundComponent,
+    ListMoviesComponent,
+    AddMovieComponent,
+    UpdateMovieComponent,
+    DeleteMovieComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appActorRoutes,{
+    //   useHash: true
+    // }),
 
+    RouterModule.forRoot(appMovieRouters,{
+      useHash:true
+    }),
     BrowserModule,
     FormsModule,
     HttpClientModule

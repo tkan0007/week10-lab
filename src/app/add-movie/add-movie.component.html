@@ -1,0 +1,12 @@
+<div class="section">
+  <h2>Add movie</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="title">
+    </div>
+    <div class="form-group">
+      <label for="title">Year</label>
+      <input type="number" class="form-control" id="title" [(ngModel)]="year">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSaveMovie()">Save Movie</button>
+</div>

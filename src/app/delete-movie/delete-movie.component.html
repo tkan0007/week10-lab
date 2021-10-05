@@ -1,0 +1,25 @@
+<div class="section mx-3 mb-3">
+    <div>
+      <h2>List of movies</h2>
+      <table class="table table-striped">
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+          </tr>
+          <tr *ngFor="let item of moviesDB">
+            <td>{{item.title}}</td>
+            <td>{{item.year}}</td>
+          </tr>
+        </table>
+    </div>
+  <div>
+      <h2>Delete by Title</h2>
+      <div class= "mx-3 mb-3 w-50">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="title">
+      </div>
+      <div class= "mx-3 mb-3 w-25">
+          <button type="submit" class="btn btn-primary" (click)="onDeleteMovie()">Delete Movie</button>
+      </div>
+  </div>
+</div>

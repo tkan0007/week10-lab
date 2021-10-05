@@ -8,7 +8,7 @@ import { DatabaseService } from '../database.service';
 })
 export class ListActorsComponent implements OnInit {
 
-  actorDB: any[] = [];
+  actorsDB: any[] = [];
 
   constructor(private dbService:DatabaseService) { }
 
@@ -16,7 +16,7 @@ export class ListActorsComponent implements OnInit {
     console.log("Actor list")
 
     this.dbService.getActors(). subscribe((data:any) =>{
-      this.actorDB = data;
+      this.actorsDB = data;
     });
   }
 }

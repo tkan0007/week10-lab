@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-add-actor',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddActorComponent implements OnInit {
 
-  constructor() { }
+  actorsDB: any[] = [];
+  actorId: string = "";
+  fullName: string = "";
+  bYear: number = 0;
+
+  constructor(private dbService: DatabaseService){}
 
   ngOnInit(): void {
+
+  }
+
+  onGetActors(){
+    this.dbService.getActors().subscribe((data:any) =>{
+      this.actorsDB = data;
+    });
+  }
+
+  onSaveActor() {
+    let obj = { name: this.fullName, bYear: this.bYear };
+    this.dbService.createActor(obj).subscribe((data:any) => {
+      this.onGetActors();
+    });
   }
 
 }

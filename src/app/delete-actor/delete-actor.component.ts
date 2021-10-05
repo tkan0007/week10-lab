@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-delete-actor',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteActorComponent implements OnInit {
 
-  constructor() { }
+  actorsDB: any[] = [];
+
+
+  constructor(private dbService: DatabaseService){}
 
   ngOnInit(): void {
+    this.onGetActors();
+  }
+
+  onGetActors(){
+    this.dbService.getActors().subscribe((data:any) =>{
+      this.actorsDB = data;
+    });
+  }
+
+  onDeleteActor(item:any) {
+    this.dbService.deleteActor(item._id).subscribe((data:any) => {
+      this.onGetActors();
+    });
   }
 
 }
