@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-add-movie',
@@ -8,7 +9,7 @@ import { DatabaseService } from '../database.service';
 })
 export class AddMovieComponent implements OnInit {
 
-  constructor(private dbService: DatabaseService){}
+  constructor(private dbService: DatabaseService, private router: Router){}
 
   moviesDB: any[] = [];
   movieId: string = "";
@@ -23,6 +24,7 @@ export class AddMovieComponent implements OnInit {
     this.dbService.createMovie(obj).subscribe((data:any) => {
       this.onGetMovies();
     });
+    this.router.navigate(["/listMovies"]);
   }
 
   onGetMovies(){

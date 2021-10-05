@@ -29,7 +29,7 @@
             <tr *ngFor="let actor of availableActors" >
               <td>{{actor._id}}</td>
               <td>{{actor.name}}</td>
-              <td>{{actor.bYear}}</td>
+              <td>{{actor.bYear|yearAgeConvert}}</td>
               <td><button type="submit" data-bs-toggle="button" class="btn btn-primary" (click)="setActor(actor)">Select</button></td>
             </tr>
           </tbody>

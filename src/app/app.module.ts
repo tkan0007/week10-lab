@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ActorComponent } from './actor/actor.component';
 import { DatabaseService } from './database.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MovieComponent } from './movie/movie.component';
 import { ListActorsComponent } from './list-actors/list-actors.component';
 import { AddActorComponent } from './add-actor/add-actor.component';
 import { UpdateActorComponent } from './update-actor/update-actor.component';
@@ -19,6 +17,9 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 import { AddActorInMovieComponent } from './add-actor-in-movie/add-actor-in-movie.component';
+import { YearAgeConvertPipe } from './year-age-convert.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appActorRoutes: Routes = [
   { path: "listActors", component: ListActorsComponent },
@@ -41,8 +42,6 @@ const appMovieRouters: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ActorComponent,
-    MovieComponent,
     ListActorsComponent,
     AddActorComponent,
     UpdateActorComponent,
@@ -52,7 +51,8 @@ const appMovieRouters: Routes = [
     AddMovieComponent,
     UpdateMovieComponent,
     DeleteMovieComponent,
-    AddActorInMovieComponent
+    AddActorInMovieComponent,
+    YearAgeConvertPipe
   ],
   imports: [
     // RouterModule.forRoot(appActorRoutes,{
@@ -64,7 +64,13 @@ const appMovieRouters: Routes = [
     }),
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]
