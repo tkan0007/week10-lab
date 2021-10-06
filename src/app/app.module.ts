@@ -20,6 +20,7 @@ import { AddActorInMovieComponent } from './add-actor-in-movie/add-actor-in-movi
 import { YearAgeConvertPipe } from './year-age-convert.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MovieclassificationPipe } from './movieclassification.pipe';
 
 const appActorRoutes: Routes = [
   { path: "listActors", component: ListActorsComponent },
@@ -57,7 +58,8 @@ const appActorRoutes: Routes = [
     UpdateMovieComponent,
     DeleteMovieComponent,
     AddActorInMovieComponent,
-    YearAgeConvertPipe
+    YearAgeConvertPipe,
+    MovieclassificationPipe
   ],
   imports: [
     RouterModule.forRoot(appActorRoutes,{
