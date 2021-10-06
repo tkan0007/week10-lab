@@ -26,18 +26,23 @@ const appActorRoutes: Routes = [
   { path: "addActor", component: AddActorComponent },
   { path: "updateActor", component: UpdateActorComponent },
   { path: "deleteActor", component: DeleteActorComponent },
-  { path: "", redirectTo: "/listActors", pathMatch: "full" },
-  { path: "**", component: ViewNotFoundComponent}
-];
-const appMovieRouters: Routes = [
   { path: "listMovies", component: ListMoviesComponent },
   { path: "addMovie", component: AddMovieComponent },
   { path: "updateMovie", component: UpdateMovieComponent },
   { path: "addActorInMovie", component: AddActorInMovieComponent},
   { path: "deleteMovie", component: DeleteMovieComponent },
-  { path: "", redirectTo: "/listMovies", pathMatch: "full" },
+  { path: "", redirectTo: "/listActors", pathMatch: "full" },
   { path: "**", component: ViewNotFoundComponent}
-]
+];
+// const appMovieRouters: Routes = [
+//   { path: "listMovies", component: ListMoviesComponent },
+//   { path: "addMovie", component: AddMovieComponent },
+//   { path: "updateMovie", component: UpdateMovieComponent },
+//   { path: "addActorInMovie", component: AddActorInMovieComponent},
+//   { path: "deleteMovie", component: DeleteMovieComponent },
+//   { path: "", redirectTo: "/listMovies", pathMatch: "full" },
+//   { path: "**", component: ViewNotFoundComponent}
+// ]
 
 @NgModule({
   declarations: [
@@ -55,13 +60,13 @@ const appMovieRouters: Routes = [
     YearAgeConvertPipe
   ],
   imports: [
-    // RouterModule.forRoot(appActorRoutes,{
-    //   useHash: true
-    // }),
-
-    RouterModule.forRoot(appMovieRouters,{
-      useHash:true
+    RouterModule.forRoot(appActorRoutes,{
+      useHash: true
     }),
+
+    // RouterModule.forRoot(appMovieRouters,{
+    //   useHash:true
+    // }),
     BrowserModule,
     FormsModule,
     HttpClientModule,
