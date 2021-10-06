@@ -15,6 +15,7 @@ const app = express();
 let path = require('path');
 
 app.use("/", express.static(path.join(__dirname,"dist/lab")));
+app.use(express.static('img'));
 app.listen(8080);
 
 
